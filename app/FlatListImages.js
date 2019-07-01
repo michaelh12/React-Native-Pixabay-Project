@@ -1,32 +1,17 @@
 import React, { useContext } from 'react';
 import { AppContext } from './AppContext';
-import { FlatList, View, StyleSheet, Image } from 'react-native';
-//Text, 
+import { FlatList, View, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
-const FlatListImages = () => {
+const FlatListImages = (props) => {
 
     const [state, setState] = useContext(AppContext);
 
     _keyExtractor = (item, index) => item.id.toString();
 
-    // _onPressItem = (id) => {
-    //     // updater functions are preferred for transactional updates
-    //     this.setState((state) => {
-    //         // copy the map rather than modifying state.
-    //         const selected = new Map(state.selected);
-    //         selected.set(id, !selected.get(id)); // toggle
-    //         return { selected };
-    //     });
-    // };
-
     const render = ({ item }) => {
-        console.log('each item being rendered', item)
 
         return (
-
-
-            // <Text style={styles.item}>{item.type}</Text>
             <Container>
                 <Header />
                 <Content>
@@ -40,9 +25,11 @@ const FlatListImages = () => {
                                 </Body>
                             </Left>
                         </CardItem>
-                        <CardItem cardBody>
-                            <Image source={{ uri: item.largeImageURL }} style={{ height: 200, width: null, flex: 1 }} />
-                        </CardItem>
+                        <TouchableHighlight onPress={() => props.navigation.navigate('SingleImage', { imageURL: item.largeImageURL, imageInfo: item })}>
+                            <CardItem cardBody>
+                                <Image source={{ uri: item.largeImageURL }} style={{ height: 200, width: null, flex: 1 }} />
+                            </CardItem>
+                        </TouchableHighlight>
                         <CardItem>
                             <Left>
                                 <Button transparent>
@@ -62,9 +49,7 @@ const FlatListImages = () => {
                         </CardItem>
                     </Card>
                 </Content>
-            </Container>
-
-
+            </Container >
 
         )
     }

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { Container, Header, Content, Thumbnail, Text, Body, Title } from 'native-base';
+import React from 'react';
+import { Thumbnail } from 'native-base';
 import { View } from 'react-native';
 
 
