@@ -6,23 +6,7 @@ export const AppContext = createContext();
 
 export const AppProvider = props => {
 
-    const [images, setImages] = useState([
-        {
-            name: 'Harry Potter',
-            price: '$10',
-            id: 23124,
-        },
-        {
-            name: 'Game of Thrones',
-            price: '$10',
-            id: 2566124,
-        },
-        {
-            name: 'Inception',
-            price: '$10',
-            id: 23524,
-        },
-    ]);
+    const [images, setImages] = useState({ imagesLoaded: false, images: {} });
 
     // const [images, setImages] = useState([
     //     {

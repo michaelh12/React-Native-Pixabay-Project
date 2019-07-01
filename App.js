@@ -6,8 +6,9 @@
  * @flow
  */
 
-import React, { Component, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Platform, StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import { AppContext } from './app/AppContext';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,6 +22,16 @@ const instructions = Platform.select({
 const App = (props) => {
 
   const [textValue, setTextValue] = useState('')
+  const [state, setState] = useContext(AppContext);
+
+  // useEffect(() => {
+
+  //   if (state.imagesLoaded) setState({ imagesLoaded: false, images: [] });
+
+
+  // })
+  // if (state.imagesLoaded) setState({ imagesLoaded: false, images: {} })
+
   return (
     // style = { styles.container }
     <ScrollView contentContainerStyle={styles.container}>
@@ -33,7 +44,14 @@ const App = (props) => {
             value={textValue} placeholder={'please enter search'} />
         </View>
         <View style={{ borderWidth: 3 }}>
-          <Button title='Send' onPress={() => { props.navigation.navigate('Thumbnail', { searchValue: textValue }) }} />
+          <Button title='Send'
+            onPress={() => {
+              setState({ imagesLoaded: false, images: {} })
+              props.navigation.navigate('Thumbnail', { searchValue: textValue })
+              setTextValue('');
+            }
+
+            } />
         </View>
       </View>
     </ScrollView >
