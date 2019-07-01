@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Container, Header, Content, Thumbnail, Text, List, ListItem } from 'native-base';
+import React, { useContext, useEffect } from 'react';
+import { Container, Header, Content, Thumbnail, Text, Body, Title } from 'native-base';
 import { View } from 'react-native';
 import { AppContext } from './AppContext';
 
@@ -21,122 +21,133 @@ const ThumbnailComponent = (props) => {
     const searchValue = props.navigation.getParam('searchValue');
     console.log(props.navigation.getParam('searchValue'));
     const uri = "https://facebook.github.io/react-native/docs/assets/favicon.png";
+    useEffect(() => {
+        setState(uri)
+    })
+    console.log(state)
     return (
-        <Container style={{}}>
-            <Header />
+        <Container>
+
+            <Header >
+
+                <Body>
+                    <Title>{`Thumbnail View: ${searchValue ? searchValue : 'Empty'}`}</Title>
+                </Body>
+
+            </Header>
 
 
             <Text>Circular Thumbnail</Text>
 
-            <Container style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-                <View >
+            <Content contentContainerStyle={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', }} >
+                <View>
                     {/* <Text>Square Thumbnail</Text>
-                <Thumbnail square small source={{ uri: uri }} />
+                <Thumbnail square large source={{ uri: uri }} />
                 <Thumbnail square source={{ uri: uri }} />
                 <Thumbnail square large source={{ uri: uri }} /> */}
 
-                    <Thumbnail small source={{ uri: uri }} />
-                    {/* <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} />
-                <Thumbnail small style={{ flex: 1 }} source={{ uri: uri }} /> */}
+                    <Thumbnail large source={{ uri: 'https://pixabay.com/get/55e2d4464b5aa414f6da8c7dda79367c1c3ed6e25b566c4870297add924bc55cba_1280.jpg' }} />
+                    {/* <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} />
+                <Thumbnail large style={{ flex: 1 }} source={{ uri: uri }} /> */}
 
 
                     {/* <Thumbnail source={{ uri: uri }} />
                 <Thumbnail large source={{ uri: uri }} /> */}
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
                 <View >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </View>
 
 
                 {/* <Content  >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content>
                 <Content >
-                    <Thumbnail small source={{ uri: uri }} />
+                    <Thumbnail large source={{ uri: uri }} />
                 </Content> */}
-            </Container>
+            </Content>
         </Container >
     );
 }
@@ -150,11 +161,11 @@ const ThumbnailComponent = (props) => {
 //                 <Header />
 //                 <Content>
 //                     <Text>Square Thumbnail</Text>
-//                     <Thumbnail square small source={{ uri: uri }} />
+//                     <Thumbnail square large source={{ uri: uri }} />
 //                     <Thumbnail square source={{ uri: uri }} />
 //                     <Thumbnail square large source={{ uri: uri }} />
 //                     <Text>Circular Thumbnail</Text>
-//                     <Thumbnail small source={{ uri: uri }} />
+//                     <Thumbnail large source={{ uri: uri }} />
 //                     <Thumbnail source={{ uri: uri }} />
 //                     <Thumbnail large source={{ uri: uri }} />
 //                 </Content>
